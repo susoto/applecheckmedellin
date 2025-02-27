@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TechCell - Expertos en venta, reparación y mantenimiento de celulares. Encuentra repuestos, accesorios y más.">
+    <meta name="keywords" content="venta de celulares, reparación de celulares, repuestos celulares, liberación de celulares, servicios tecnológicos">
+    <meta name="author" content="TechCell">
+    <title>TechCell - Expertos en Celulares</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        /* Header */
+        header {
+            background-color: #0d0d0d;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        nav .logo {
+            font-size: 1.8em;
+            color: #d4af37;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #d4af37;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #d4af37;
+            color: #1a1a1a;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #b8962e;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Services */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: #262626;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card i {
+            font-size: 2em;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            color: #e0e0e0;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: #b3b3b3;
+            font-size: 0.95em;
+        }
+
+        /* About */
+        .about {
+            background-color: #262626;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .about h2 {
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: #262626;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .testimonial-card {
+            max-width: 500px;
+            margin: 20px auto;
+            color: #b3b3b3;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+        }
+
+        .testimonial-card h4 {
+            color: #d4af37;
+            margin-top: 10px;
+        }
+
+        /* Contact */
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact input, .contact textarea {
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            color: #e0e0e0;
+        }
+
+        .contact button {
+            align-self: flex-start;
+        }
+
+        .contact-info {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0d0d0d;
+            padding: 20px;
+            text-align: center;
+            color: #b3b3b3;
+        }
+
+        footer a {
+            color: #d4af37;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: #fff;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 1.5em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            nav ul {
+                margin-top: 20px;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+        }
+    </style>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">TechCell</div>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content fade-in">
+            <h1>Expertos en Venta y Reparación de Celulares</h1>
+            <p>Tu solución integral para dispositivos móviles</p>
+            <a href="#servicios" class="btn">Ver Servicios</a>
+            <a href="#contacto" class="btn" style="margin-left: 20px;">Contactar</a>
+        </div>
+    </section>
+
+    <section class="container" id="servicios">
+        <h2 style="text-align: center; color: #d4af37; margin-bottom: 40px;">Nuestros Servicios</h2>
+        <div class="services fade-in">
+            <div class="service-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Venta de Celulares y Accesorios</h3>
+                <p>Últimos modelos y accesorios originales de alta calidad.</p>
+                <a href="#" class="btn" style="margin-top: 15px;">Más Detalles</a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-tools"></i>
+                <h3>Reparación y Mantenimiento</h3>
+                <p>Servicio técnico especializado para tu dispositivo.</p>
+                <a href="#" class="btn" style="margin-top: 15px;">Más Detalles</a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-cogs"></i>
+                <h3>Venta de Repuestos</h3>
+                <p>Repuestos originales y compatibles para celulares.</p>
+                <a href="#" class="btn" style="margin-top: 15px;">Más Detalles</a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-unlock"></i>
+                <h3>Liberación de Celulares</h3>
+                <p>Libera tu equipo de forma rápida y segura.</p>
+                <a href="#" class="btn" style="margin-top: 15px;">Más Detalles</a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-download"></i>
+                <h3>Instalación de Software</h3>
+                <p>Actualizaciones y apps para optimizar tu celular.</p>
+                <a href="#" class="btn" style="margin-top: 15px;">Más Detalles</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about fade-in" id="sobre-nosotros">
+        <div class="container">
+            <h2>Sobre Nosotros</h2>
+            <p>Somos TechCell, un equipo apasionado por la tecnología con más de 10 años de experiencia en la venta y reparación de celulares. Nuestra misión es ofrecer soluciones confiables y de calidad, siempre comprometidos con la satisfacción de nuestros clientes.</p>
+        </div>
+    </section>
+
+    <section class="container" id="galeria">
+        <h2 style="text-align: center; color: #d4af37; margin-bottom: 40px;">Galería</h2>
+        <div class="gallery fade-in">
+            <img src="https://via.placeholder.com/300x200" alt="Celular reparado">
+            <img src="https://via.placeholder.com/300x200" alt="Accesorios">
+            <img src="https://via.placeholder.com/300x200" alt="Repuestos">
+            <img src="https://via.placeholder.com/300x200" alt="Servicio técnico">
+        </div>
+    </section>
+
+    <section class="testimonials fade-in" id="testimonios">
+        <div class="container">
+            <h2 style="color: #d4af37; margin-bottom: 40px;">Testimonios</h2>
+            <div class="testimonial-card">
+                <p>"Repararon mi celular en tiempo récord y quedó como nuevo. ¡Excelente servicio!"</p>
+                <h4>- María Gómez</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>"Gran variedad de accesorios y muy buena atención. Recomendados."</p>
+                <h4>- Juan Pérez</h4>
+            </div>
+        </div>
+    </section>
+
+    <section class="container contact" id="contacto">
+        <h2 style="text-align: center; color: #d4af37; margin-bottom: 40px;">Contacto</h2>
+        <form class="fade-in">
+            <input type="text" placeholder="Nombre" required>
+            <input type="email" placeholder="Correo Electrónico" required>
+            <input type="tel" placeholder="Teléfono" required>
+            <textarea placeholder="Mensaje" rows="5" required></textarea>
+            <button type="submit" class="btn">Enviar</button>
+        </form>
+        <div class="contact-info fade-in">
+            <p><i class="fas fa-map-marker-alt"></i> Av. Principal 123, Ciudad</p>
+            <p><i class="fas fa-phone"></i> +123 456 7890</p>
+            <p><i class="fas fa-envelope"></i> contacto@techcell.com</p>
+            <p><i class="fas fa-clock"></i> Lunes - Sábado: 9:00 - 18:00</p>
+            <iframe src="https://www.google.com/maps/embed?pb=YOUR_MAP_LINK" width="100%" height="300" style="border:0; margin-top: 20px;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <p><a href="#inicio">Inicio</a> | <a href="#servicios">Servicios</a> | <a href="#contacto">Contacto</a></p>
+        <p><a href="#"><i class="fab fa-whatsapp"></i></a> <a href="#"><i class="fab fa-instagram"></i></a> <a href="#"><i class="fab fa-facebook"></i></a></p>
+        <p>© 2025 TechCell - Todos los derechos reservados | <a href="#">Política de Privacidad</a></p>
+    </footer>
+
+    <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
+
+    <script>
+        // Animaciones al hacer scroll
+        const elements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 1s ease-out forwards';
+                }
+            });
+        }, { threshold: 0.2 });
+
+        elements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
